@@ -153,7 +153,8 @@ Convert a FASTQ file to FASTA:
 
 Extract every 4th line starting at the second line (extract the sequence from FASTQ file):
 
-    sed -n '2~4p' file.fq
+    awk 'NR%4==2' file.fq
+    awk 'NR%4==1' file.fq 
 
 Print everything except the first line
 
