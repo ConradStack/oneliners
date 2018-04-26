@@ -570,3 +570,13 @@ Find files containing text (`-l` outputs only the file names, `-i` ignores the c
 
     grep -lir "some text" *
 
+## (Ana)conda package management
+
+Export package list for each environment:
+
+    conda env list |\
+    awk '$1 ~ "^[^#]" && $1 != "" { print $1 }' |\
+    xargs -I {} conda env export -n {} --file {}_env.txt
+
+
+
